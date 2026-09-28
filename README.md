@@ -11,6 +11,8 @@
 [![MIT License](https://img.shields.io/badge/license-MIT-A88CFF?style=flat-square)](LICENSE)
 </div>
 
+[Open the live studio ↗](https://harshareddy0405.github.io/relay-ops/) · [Engineering notes](docs/ENGINEERING.md) · [Quality checks](https://github.com/harshareddy0405/relay-ops/actions)
+
 ## Why Relay Ops?
 
 Automation builders are good at showing **what you configured**. They are often much worse at showing **what is happening**.
