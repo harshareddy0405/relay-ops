@@ -1,0 +1,32 @@
+<svg width="1600" height="840" viewBox="0 0 1600 840" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="90" y1="30" x2="1450" y2="810" gradientUnits="userSpaceOnUse"><stop stop-color="#17140E"/><stop offset=".42" stop-color="#0B0C0F"/><stop offset="1" stop-color="#10141A"/></linearGradient>
+    <linearGradient id="line" x1="320" y1="420" x2="1280" y2="420" gradientUnits="userSpaceOnUse"><stop stop-color="#69D7A4"/><stop offset=".48" stop-color="#F7B955"/><stop offset="1" stop-color="#6CA8FF"/></linearGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="12"/></filter>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#F5F6F0" fill-opacity=".10"/></pattern>
+  </defs>
+  <rect width="1600" height="840" rx="36" fill="url(#bg)"/>
+  <rect width="1600" height="840" rx="36" fill="url(#dots)" opacity=".52"/>
+  <circle cx="250" cy="100" r="240" fill="#F7B955" fill-opacity=".07"/>
+  <circle cx="1390" cy="735" r="300" fill="#6CA8FF" fill-opacity=".06"/>
+  <g transform="translate(118 96)">
+    <rect width="52" height="52" rx="15" fill="#F7B955" fill-opacity=".12" stroke="#F7B955" stroke-opacity=".5"/>
+    <rect x="15" y="21" width="5" height="13" rx="2.5" fill="#F7B955" fill-opacity=".55"/><rect x="24" y="13" width="5" height="29" rx="2.5" fill="#F7B955"/><rect x="33" y="18" width="5" height="19" rx="2.5" fill="#F7B955" fill-opacity=".75"/>
+    <text x="72" y="34" fill="#F5F6F0" font-family="Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="-1">Relay <tspan fill="#8F969D" font-weight="400">Ops</tspan></text>
+  </g>
+  <text x="118" y="235" fill="#8F969D" font-family="monospace" font-size="15" letter-spacing="3">AUTOMATION COMMAND CENTER</text>
+  <text x="118" y="315" fill="#F5F6F0" font-family="Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="-4">Design. Observe.</text>
+  <text x="118" y="390" fill="#F5F6F0" font-family="Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="-4">Run with confidence.</text>
+  <text x="121" y="444" fill="#8F969D" font-family="Arial, sans-serif" font-size="21">A local-first operations cockpit for thoughtful AI automation.</text>
+  <g transform="translate(118 520)">
+    <path d="M160 73H222M380 73H442M600 73H662M820 73H882" stroke="url(#line)" stroke-width="2" stroke-dasharray="5 6"/>
+    <g><rect width="160" height="146" rx="18" fill="#15191C" stroke="#69D7A4" stroke-opacity=".5"/><rect x="20" y="20" width="34" height="34" rx="10" fill="#69D7A4" fill-opacity=".12"/><text x="31" y="43" fill="#69D7A4" font-family="monospace" font-size="16">⌁</text><text x="20" y="93" fill="#F5F6F0" font-family="Arial" font-size="15" font-weight="600">Trigger</text><text x="20" y="116" fill="#686F77" font-family="monospace" font-size="10">08:30 · WEEKDAYS</text></g>
+    <g transform="translate(222)"><rect width="158" height="146" rx="18" fill="#15191C" stroke="#6CA8FF" stroke-opacity=".45"/><rect x="20" y="20" width="34" height="34" rx="10" fill="#6CA8FF" fill-opacity=".12"/><text x="31" y="43" fill="#6CA8FF" font-family="monospace" font-size="16">↗</text><text x="20" y="93" fill="#F5F6F0" font-family="Arial" font-size="15" font-weight="600">Gather</text><text x="20" y="116" fill="#686F77" font-family="monospace" font-size="10">6 TRUSTED FEEDS</text></g>
+    <g transform="translate(442)"><rect width="158" height="146" rx="18" fill="#15191C" stroke="#F7B955" stroke-opacity=".52"/><rect x="20" y="20" width="34" height="34" rx="10" fill="#F7B955" fill-opacity=".12"/><text x="31" y="43" fill="#F7B955" font-family="monospace" font-size="16">✦</text><text x="20" y="93" fill="#F5F6F0" font-family="Arial" font-size="15" font-weight="600">Synthesize</text><text x="20" y="116" fill="#686F77" font-family="monospace" font-size="10">EXECUTIVE FORMAT</text></g>
+    <g transform="translate(662)"><rect width="158" height="146" rx="18" fill="#15191C" stroke="#A88CFF" stroke-opacity=".42"/><rect x="20" y="20" width="34" height="34" rx="10" fill="#A88CFF" fill-opacity=".12"/><text x="31" y="43" fill="#A88CFF" font-family="monospace" font-size="16">◇</text><text x="20" y="93" fill="#F5F6F0" font-family="Arial" font-size="15" font-weight="600">Review</text><text x="20" y="116" fill="#686F77" font-family="monospace" font-size="10">HUMAN CHECKPOINT</text></g>
+    <g transform="translate(882)"><rect width="160" height="146" rx="18" fill="#15191C" stroke="#6CA8FF" stroke-opacity=".45"/><rect x="20" y="20" width="34" height="34" rx="10" fill="#6CA8FF" fill-opacity=".12"/><text x="31" y="43" fill="#6CA8FF" font-family="monospace" font-size="16">→</text><text x="20" y="93" fill="#F5F6F0" font-family="Arial" font-size="15" font-weight="600">Deliver</text><text x="20" y="116" fill="#686F77" font-family="monospace" font-size="10">EMAIL · NOTION</text></g>
+    <circle cx="521" cy="73" r="8" fill="#F7B955" fill-opacity=".25" filter="url(#glow)"/><circle cx="521" cy="73" r="4" fill="#F7B955"/>
+  </g>
+  <g transform="translate(1210 100)"><rect width="258" height="83" rx="16" fill="#111317" stroke="#F5F6F0" stroke-opacity=".1"/><circle cx="27" cy="26" r="5" fill="#69D7A4"/><text x="42" y="31" fill="#8F969D" font-family="monospace" font-size="11">SYSTEMS NOMINAL</text><text x="20" y="62" fill="#F5F6F0" font-family="Arial" font-size="18" font-weight="600">98.7% success rate</text></g>
+  <text x="118" y="785" fill="#686F77" font-family="monospace" font-size="12" letter-spacing="2">LOCAL-FIRST · ZERO DEPENDENCIES · OPEN SOURCE</text>
+</svg>

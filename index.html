@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Relay Ops — a local-first command center for designing and simulating AI automations."
+    />
+    <meta name="theme-color" content="#0b0c0f" />
+    <title>Relay Ops — Automation command center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="quality.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to workspace</a>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Relay Ops home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Relay <em>Ops</em></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <button class="nav-item active" data-view="automations">
+          Automations
+        </button>
+        <button class="nav-item" data-view="activity">Activity</button>
+        <button class="nav-item" data-view="insights">Insights</button>
+      </nav>
+
+      <div class="top-actions">
+        <button
+          class="icon-button"
+          id="commandButton"
+          title="Open command menu (⌘K)"
+          aria-label="Open command menu"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6"></circle>
+            <path d="m16 16 4 4"></path>
+          </svg>
+        </button>
+        <div class="system-pill"><span></span> Local simulation</div>
+        <button
+          class="avatar"
+          title="Local workspace"
+          aria-label="Local workspace"
+        >
+          HV
+        </button>
+      </div>
+    </header>
+
+    <main id="workspace" class="workspace">
+      <aside class="sidebar" aria-label="Automation list">
+        <div class="sidebar-heading">
+          <div>
+            <p class="eyebrow">Workspace</p>
+            <h1>Automations</h1>
+          </div>
+          <button
+            class="add-button"
+            id="newAutomationButton"
+            aria-label="Create automation"
+          >
+            +
+          </button>
+        </div>
+
+        <label class="search-field">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6"></circle>
+            <path d="m16 16 4 4"></path>
+          </svg>
+          <span class="sr-only">Search automations</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search flows…"
+            autocomplete="off"
+          />
+          <kbd>/</kbd>
+        </label>
+
+        <div class="filter-row" role="group" aria-label="Filter automations">
+          <button class="filter active" data-filter="all">
+            All <span id="allCount">5</span>
+          </button>
+          <button class="filter" data-filter="active">Active</button>
+          <button class="filter" data-filter="paused">Paused</button>
+        </div>
+
+        <div class="automation-list" id="automationList"></div>
+
+        <div class="usage-card">
+          <div class="usage-top">
+            <span>Monthly runs</span><strong id="usageText">624 / 1,000</strong>
+          </div>
+          <div class="progress"><span id="usageProgress"></span></div>
+          <p>Local simulation plan · resets in 9 days</p>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="content-header">
+          <div class="title-group">
+            <div class="flow-icon" id="flowIcon">MB</div>
+            <div>
+              <div class="title-line">
+                <h2 id="flowName">Morning market brief</h2>
+                <span class="status-badge" id="flowStatus"><i></i> Active</span>
+              </div>
+              <p id="flowDescription">
+                Turns trusted market sources into a concise executive briefing.
+              </p>
+            </div>
+          </div>
+          <div class="flow-actions">
+            <button class="secondary-button" id="exportButton">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3v12m-4-4 4 4 4-4"></path>
+                <path d="M5 17v3h14v-3"></path>
+              </svg>
+              Export
+            </button>
+            <button class="run-button" id="runButton">
+              <span class="play-icon">▶</span> Run now <kbd>R</kbd>
+            </button>
+            <button
+              class="more-button"
+              id="moreButton"
+              aria-label="More automation options"
+            >
+              •••
+            </button>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-label">
+              <span>Success rate</span><i class="dot green"></i>
+            </div>
+            <strong id="successRate">98.7%</strong>
+            <p class="positive" id="successDelta">↗ 2.4% this week</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-label">
+              <span>Runs this month</span><i class="dot amber"></i>
+            </div>
+            <strong id="runsCount">184</strong>
+            <p id="runFrequency">Every weekday · 08:30</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-label">
+              <span>Median runtime</span><i class="dot blue"></i>
+            </div>
+            <strong id="runtimeValue">18.4s</strong>
+            <p class="positive" id="runtimeDelta">↓ 3.2s vs last week</p>
+          </article>
+          <article class="stat-card chart-card">
+            <div class="stat-label">
+              <span>7-day volume</span><span id="volumeTotal">42 runs</span>
+            </div>
+            <div
+              class="mini-chart"
+              id="miniChart"
+              aria-label="Seven-day run volume chart"
+            ></div>
+          </article>
+        </div>
+
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Live blueprint</p>
+            <h3>Workflow</h3>
+          </div>
+          <div class="canvas-tools">
+            <button id="zoomOut" aria-label="Zoom out">−</button>
+            <span id="zoomLabel">100%</span>
+            <button id="zoomIn" aria-label="Zoom in">+</button>
+            <button id="centerCanvas" aria-label="Center workflow">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <section
+          class="workflow-canvas"
+          id="workflowCanvas"
+          aria-label="Automation workflow"
+        >
+          <div class="grid-dots" aria-hidden="true"></div>
+          <div class="pipeline" id="pipeline"></div>
+          <div class="canvas-legend">
+            <span><i class="legend-dot trigger"></i> Trigger</span>
+            <span><i class="legend-dot intelligence"></i> Intelligence</span>
+            <span><i class="legend-dot action"></i> Action</span>
+          </div>
+        </section>
+
+        <section class="bottom-grid">
+          <article class="runs-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Execution trail</p>
+                <h3>Recent runs</h3>
+              </div>
+              <button class="text-button" id="clearRunsButton">
+                Clear simulation
+              </button>
+            </div>
+            <div class="run-table" id="runTable"></div>
+          </article>
+
+          <article class="schedule-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Next event</p>
+                <h3>Schedule</h3>
+              </div>
+              <button
+                class="toggle active"
+                id="scheduleToggle"
+                role="switch"
+                aria-checked="true"
+                aria-label="Toggle schedule"
+              >
+                <span></span>
+              </button>
+            </div>
+            <div class="next-run">
+              <div class="date-tile">
+                <strong id="nextDay">22</strong><span id="nextMonth">SEP</span>
+              </div>
+              <div>
+                <strong id="nextRunTime">Tomorrow, 08:30</strong>
+                <p id="nextRunZone">Asia/Kolkata · weekday cadence</p>
+              </div>
+            </div>
+            <div
+              class="week-strip"
+              id="weekStrip"
+              aria-label="Schedule days"
+            ></div>
+            <button class="schedule-button" id="editScheduleButton">
+              Edit schedule <span>→</span>
+            </button>
+          </article>
+        </section>
+      </section>
+      <section
+        id="workspaceReport"
+        class="content"
+        hidden
+        aria-label="Workspace report"
+      ></section>
+    </main>
+
+    <dialog id="scheduleDialog" class="modal" aria-labelledby="scheduleHeading">
+      <form id="scheduleForm">
+        <h2 id="scheduleHeading">Schedule blueprint</h2>
+        <p class="modal-copy">
+          Plan a recurring window in Asia/Kolkata. No background jobs are
+          created.
+        </p>
+        <label>Run time<input id="scheduleTime" type="time" required /></label>
+        <fieldset id="scheduleDays">
+          <legend>Repeat on (none = on demand)</legend>
+          <label><input type="checkbox" value="0" /> Sun</label
+          ><label><input type="checkbox" value="1" /> Mon</label
+          ><label><input type="checkbox" value="2" /> Tue</label
+          ><label><input type="checkbox" value="3" /> Wed</label
+          ><label><input type="checkbox" value="4" /> Thu</label
+          ><label><input type="checkbox" value="5" /> Fri</label
+          ><label><input type="checkbox" value="6" /> Sat</label>
+        </fieldset>
+        <div class="modal-actions">
+          <button type="button" class="secondary-button" data-close-editor>
+            Cancel</button
+          ><button type="submit" class="primary-button">Save schedule</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="stepDialog" class="modal" aria-labelledby="stepHeading">
+      <form id="stepForm">
+        <h2 id="stepHeading">Edit pipeline step</h2>
+        <p class="modal-copy">
+          Describe the blueprint. Connectors are simulated; no service
+          credentials are stored.
+        </p>
+        <label
+          >Step title<input id="stepTitle" maxlength="80" required
+        /></label>
+        <label
+          >Configuration notes<textarea
+            id="stepDetail"
+            maxlength="300"
+            required
+          ></textarea>
+        </label>
+        <div class="modal-actions">
+          <button type="button" class="secondary-button" data-close-editor>
+            Cancel</button
+          ><button type="submit" class="primary-button">Save step</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+
+    <dialog id="automationDialog" class="modal">
+      <form method="dialog" id="automationForm">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow">New blueprint</p>
+            <h2>Create an automation</h2>
+          </div>
+          <button
+            class="modal-close"
+            type="button"
+            data-close-modal
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+        <p class="modal-copy">
+          Start with a focused outcome. Relay will scaffold a local, editable
+          simulation.
+        </p>
+        <label
+          >Automation name<input
+            name="name"
+            required
+            maxlength="48"
+            placeholder="e.g. Customer insight digest"
+        /></label>
+        <label
+          >What should it accomplish?<textarea
+            name="description"
+            required
+            maxlength="140"
+            placeholder="Turn customer interviews into a weekly insight memo."
+          ></textarea>
+        </label>
+        <div class="form-grid">
+          <label
+            >Trigger<select name="trigger">
+              <option>On a schedule</option>
+              <option>New form response</option>
+              <option>Webhook received</option>
+              <option>Manual run</option>
+            </select></label
+          >
+          <label
+            >Cadence<select name="cadence">
+              <option>Every weekday</option>
+              <option>Every day</option>
+              <option>Every Monday</option>
+              <option>On demand</option>
+            </select></label
+          >
+        </div>
+        <div class="modal-actions">
+          <button type="button" data-close-modal class="secondary-button">
+            Cancel</button
+          ><button
+            value="default"
+            class="run-button"
+            id="createAutomationButton"
+          >
+            Create blueprint
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="commandDialog" class="command-modal">
+      <div class="command-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="6"></circle>
+          <path d="m16 16 4 4"></path></svg
+        ><input
+          id="commandInput"
+          placeholder="Type a command…"
+          autocomplete="off"
+        /><kbd>esc</kbd>
+      </div>
+      <div class="command-list" id="commandList">
+        <button data-command="run">
+          <span><i class="command-icon amber">▶</i> Run current automation</span
+          ><kbd>R</kbd>
+        </button>
+        <button data-command="new">
+          <span><i class="command-icon green">＋</i> Create new automation</span
+          ><kbd>N</kbd>
+        </button>
+        <button data-command="export">
+          <span
+            ><i class="command-icon blue">↓</i> Export current blueprint</span
+          ><kbd>E</kbd>
+        </button>
+        <button data-command="toggle">
+          <span
+            ><i class="command-icon violet">◫</i> Toggle current schedule</span
+          ><kbd>S</kbd>
+        </button>
+      </div>
+      <p class="command-hint">
+        Relay commands · everything stays in this browser
+      </p>
+    </dialog>
+
+    <script src="storage.js"></script>
+    <script src="schema.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
